@@ -1,0 +1,21 @@
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none" style="font-weight: 600; color: #191414; font-size: 35px;">Pitch<span style="color:#F5245F; font-size: 30px;">.</span>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+      <li><a href="/pitches/" class="nav-link px-2 link-dark">Pitches</a></li>
+      <li><a href="/pitches/new/" class="nav-link px-2 link-dark">Add Pitch</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      {% if current_user.is_authenticated %}
+      <button type="button" class="btn btn-outline-dark me-2"><a href="{{url_for('main.profile',uname=current_user.username)}}" style="color:#F5245F; text-decoration: none;"><i class="bi bi-person-fill"></i>{{current_user.username}}</a></button>
+      <button type="button" class="btn btn-outline-dark me-2"><a href="{{url_for('auth.logout')}}" style="text-decoration: none; color:#F5245F ;">Logout</a></button>
+      {%else%} 
+      <button type="button" class="btn btn-outline-dark me-2"><a href="{{url_for('auth.login')}}" style="text-decoration: none; color:#F5245F ;">Login</a></button>
+      {%endif%} 
+    </div>
+  </header>
+</div>
